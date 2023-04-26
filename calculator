@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Cost Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Website Cost Calculator</h1>
+        <label>
+            Number of pages:
+            <input type="number" id="pages" min="1" value="1">
+        </label>
+        <label>
+            Custom design:
+            <select id="customDesign">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </label>
+        <label>
+            Responsive design:
+            <select id="responsive">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </label>
+        <label>
+            E-commerce:
+            <select id="ecommerce">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </label>
+        <label>
+            Content writing:
+            <select id="contentWriting">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </label>
+        <label>
+            SEO:
+            <select id="seo">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </label>
+        <label>
+            Support & Maintenance:
+            <select id="support">
+                <option value="none">None</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+            </select>
+        </label>
+        <button onclick="calculateCost()">Calculate Cost</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function calculateCost() {
+            const pages = parseInt(document.getElementById('pages').value);
+            const customDesign = document.getElementById('customDesign').value;
+            const responsive = document.getElementById('responsive').value;
+            const ecommerce = document.getElementById('ecommerce').value;
+            const contentWriting = document.getElementById('contentWriting').value;
+            const seo = document.getElementById('seo').value;
+            const support = document.getElementById('support').value;
+
+            const baseCost = 50; // base cost per page
+            const customDesignCost = customDesign === 'yes' ? 1000 : 0;
+            const responsiveCost = responsive === 'yes' ? 500 : 0;
+            const ecommerceCost = ecommerce === 'yes' ? 2000 : 0;
+            const contentWritingCost = contentWriting === 'yes' ? 100 * pages :
